@@ -31,7 +31,6 @@
 
 #import "Matrix+Advanced.h"
 #import "Constants.h"
-#import "HaltonInterface.h"
 
 #pragma mark - C Function Definitions
 
@@ -241,21 +240,6 @@ static void sobol_destroy(soboldata *sd);
         sobol_destroy(s);
         free(s);
     }
-    
-    return result;
-}
-
-+ (instancetype)haltonSequenceWithLowerBound:(Matrix *)lower
-                                  upperBound:(Matrix *)upper
-                                       count:(int)count
-{
-    NSAssert (lower.rows == upper.rows && 1 == lower.columns && 1 == upper.columns,
-              @"Matrix size mismatch");
-    
-    Matrix *result = [HaltonInterface sampleWithDimension:lower.rows count:count];
-    
-    [result multiplyColumn:upper];
-    [result addColumn:lower];
     
     return result;
 }
