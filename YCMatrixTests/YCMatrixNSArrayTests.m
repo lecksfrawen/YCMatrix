@@ -31,7 +31,7 @@
     
     Matrix *mins = [matrixArray matrixMin];
     
-    XCTAssert([mins isEqualTo:mt], @"Error in computing min matrix of array");
+    XCTAssert([mins isEqualToMatrix:mt tolerance:0.01], @"Error in computing min matrix of array");
 }
 
 - (void)testArrayMax
@@ -50,7 +50,7 @@
     
     Matrix *maxs = [matrixArray matrixMax];
     
-    XCTAssert([maxs isEqualTo:mt], @"Error in computing max matrix of array");
+    XCTAssert([maxs isEqualToMatrix:mt tolerance:0.01], @"Error in computing max matrix of array");
 }
 
 @end
