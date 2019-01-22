@@ -137,6 +137,38 @@
     CleanNSLog(@"%@",po4);
     CleanNSLog(@"PseudoInverse: %ix%i",poi4->rows, poi4->columns);
     CleanNSLog(@"%@",poi4);
+    
+    double pinv_orig_array5[64] = {
+        1.0, 0, 0, 0, 0, 0, 0, 0,
+        0, 1.0, 0, 0, 0, 0, 0, 0,
+        0, 0, 1.0, 0, 0, 0, 0, 0,
+        0, 0, 0, 1.0, 0, 0, 0, 0,
+        0, 0, 0, 0, 1.0, 0, 0, 0,
+        0, 0, 0, 0, 0, 1.0, 0, 0,
+        0, 0 ,0, 0, 0, 0, 1.0, 0,
+        0, 0, 0, 0, 0, 0, 0, 1.0
+    };
+    Matrix *po5 = [Matrix matrixFromArray:pinv_orig_array5 rows:8 columns:8];
+    Matrix *poi5 = [po5 pseudoInverse];
+    CleanNSLog(@"Original: %ix%i",po5->rows, po5->columns);
+    CleanNSLog(@"%@",po5);
+    CleanNSLog(@"PseudoInverse: %ix%i",poi5->rows, poi5->columns);
+    CleanNSLog(@"%@",poi5);
+    
+    double pinv_orig_array6[36] = {
+        1.0, 1.0, 0, 0, 0, 0,
+        0, 1.0, 0, 0, 0, 0,
+        0, 1.0, 1.0, 0, 0, 0,
+        0, 0, 0, 1.0, 0, 0,
+        0, 0, 0, 1.0, 1.0, 0,
+        0, 0, 0, 0, 1.0, 1.0
+    };
+    Matrix *po6 = [Matrix matrixFromArray:pinv_orig_array6 rows:6 columns:6];
+    Matrix *poi6 = [po6 pseudoInverse];
+    CleanNSLog(@"Original: %ix%i",po6->rows, po6->columns);
+    CleanNSLog(@"%@",po6);
+    CleanNSLog(@"PseudoInverse: %ix%i",poi6->rows, poi6->columns);
+    CleanNSLog(@"%@",poi6);
 }
 
 - (void)testCholesky
